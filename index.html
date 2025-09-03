@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Smart Parking</title>
+  <style>
+    /* Simple, HTML-only, no JS */
+    :root{
+      --orange:#ff7a00;
+      --orange-dark:#e96c00;
+      --text:#222;
+      --muted:#666;
+      --bg:#ffffff;
+      --soft:#f7f7f9;
+      --border:#ececf1;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--text); background:var(--bg); line-height:1.6}
+    .container{width:min(1000px, 92vw); margin-inline:auto}
+
+    /* Header */
+    header{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--border)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 6px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .brand-badge{font-size:.75rem; padding:.1rem .5rem; border:1px solid var(--border); border-radius:999px; color:var(--muted)}
+    .links{display:flex; gap:16px}
+    .links a{color:var(--muted); text-decoration:none}
+    .btn{display:inline-block; padding:.6rem 1rem; border-radius:999px; background:var(--orange); color:white; text-decoration:none}
+
+    /* Hero */
+    .hero{padding:56px 0}
+    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:center}
+    .title{font-size: clamp(1.8rem, 4vw, 2.6rem); line-height:1.1; margin:.2rem 0 .6rem}
+    .lead{color:var(--muted)}
+
+    /* Card & inputs */
+    .card{background:var(--soft); border:1px solid var(--border); border-radius:var(--radius); padding:18px}
+    label{display:block; margin:10px 0 6px}
+    .input{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border)}
+    .muted{color:var(--muted); font-size:.92rem}
+
+    /* Features */
+    section{padding:26px 0}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
+    .feature{border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:#fff}
+    .feature h3{margin:.3rem 0}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns: repeat(2, 1fr); gap:16px}
+    .price-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:#fff}
+    .price{font-size:1.6rem; font-weight:800; color:var(--orange)}
+
+    /* Contact */
+    .contact form{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .full{grid-column:1/-1}
+
+    /* Footer */
+    footer{padding:24px 0 40px; color:var(--muted); border-top:1px solid var(--border); background:#fff}
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .contact form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">Smart Parking <span class="brand-badge">Simple</span></div>
+      <nav class="links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#login">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="muted">Orange & White • No JS • HTML-only</p>
+        <h1 class="title">Find and reserve a parking spot—fast.</h1>
+        <p class="lead">A clean, minimal single-file page with a login box, features, simple pricing, and a contact form. Copy–paste and go.</p>
+        <p style="margin-top:14px">
+          <a class="btn" href="#features">Explore Features</a>
+        </p>
+      </div>
+      <div id="login" class="card">
+        <h2 style="margin:.2rem 0 8px">Login</h2>
+        <form action="#" method="post">
+          <label for="email">Email</label>
+          <input id="email" class="input" type="email" placeholder="you@example.com" required>
+          <label for="password">Password</label>
+          <input id="password" class="input" type="password" placeholder="••••••••" required>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px">
+            <a class="muted" href="#">Forgot password?</a>
+            <button class="btn" type="submit">Sign in</button>
+          </div>
+        </form>
+        <p class="muted" style="margin-top:10px">No account? <a href="#contact">Contact us</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 style="margin:.2rem 0 10px">Features</h2>
+      <div class="grid-3">
+        <article class="feature">
+          <h3>Real‑time Status</h3>
+          <p class="muted">See empty, filled, and booked spots at a glance.</p>
+        </article>
+        <article class="feature">
+          <h3>Manual Selection</h3>
+          <p class="muted">Pick your preferred open‑roof or closed‑roof slot.</p>
+        </article>
+        <article class="feature">
+          <h3>Simple Pricing</h3>
+          <p class="muted">Clear, transparent costs with no hidden fees.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" style="background:var(--soft)">
+    <div class="container">
+      <h2 style="margin:.2rem 0 10px">Pricing</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Open‑Roof</h3>
+          <p class="muted">Budget friendly</p>
+          <p class="price">₹20/hr</p>
+          <a class="btn" href="#login">Choose</a>
+        </div>
+        <div class="price-card">
+          <h3>Closed‑Roof</h3>
+          <p class="muted">Premium covered</p>
+          <p class="price">₹35/hr</p>
+          <a class="btn" href="#login">Choose</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 style="margin:.2rem 0 10px">Contact Us</h2>
+      <p class="muted">Send a quick message and we’ll get back to you.</p>
+      <form action="#" method="post" class="contact">
+        <input class="input" type="text" placeholder="Name" required>
+        <input class="input" type="email" placeholder="Email" required>
+        <input class="input full" type="tel" placeholder="Mobile Number" required>
+        <textarea class="input full" rows="4" placeholder="Your message…" required></textarea>
+        <div class="full" style="display:flex; justify-content:flex-end; gap:10px">
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px">
+      <p>© 2025 Smart Parking</p>
+      <nav style="display:flex; gap:12px">
+        <a class="muted" href="#">Terms</a>
+        <a class="muted" href="#">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
